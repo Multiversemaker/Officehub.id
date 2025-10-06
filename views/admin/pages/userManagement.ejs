@@ -1,0 +1,86 @@
+<main id="mainContent" class="content shifted p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h2 class="heading">User Management</h2>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#filterModal">
+        <i class="bi bi-funnel"></i> Filter
+      </button>
+      <a href="/admin/user-managements/add-um" class="btn"
+        ><i class="bi bi-person-add"></i> Add User</a
+      >
+    </div>
+
+    <nav class="d-flex justify-content-start mb-4">
+      <ul class="pagination pagination-sm m-0">
+        <% if (currentPage > 1) { %>
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="/user-managements?page=<%= currentPage - 1 %>"
+            >&laquo;</a
+          >
+        </li>
+        <% } %> <% for (let i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+          <a class="page-link" href="/user-managements?page=<%= i %>"
+            ><%= i %></a
+          >
+        </li>
+        <% } %> <% if (currentPage < totalPages) { %>
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="/user-managements?page=<%= currentPage + 1 %>"
+            >&raquo;</a
+          >
+        </li>
+        <% } %>
+      </ul>
+    </nav>
+
+    <% if (noUsersFound) { %>
+    <div class="alert alert-warning text-center">
+      Tidak ada user yang ditemukan dengan filter yang dipilih.
+    </div>
+    <% } else { %>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% usersPerPage.forEach((user) => { %>
+          <tr>
+            <td><%= user.nama %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td class="text-center">
+              <a
+                href="/admin/user-managements/<%= user.nama %>"
+                class="btn btn-sm"
+                ><i class="bi bi-pencil-fill"></i
+              ></a>
+              <form
+                action="/admin/user-managements/<%= user.nama %>?_method=DELETE"
+                method="POST"
+                class="d-inline"
+                onsubmit="return confirm('Yakin ingin menghapus user ini?');"
+              >
+                <button type="submit" class="btn btn-sm">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </div>
+</main>

@@ -1,0 +1,35 @@
+<div class="modal fade" id="deleteFolderModal-<%= folder._id %>" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4">
+      <form
+        action="/admin/documents/folder/<%= folder._id %>?_method=DELETE"
+        method="POST"
+      >
+        <div class="modal-header">
+          <h5 class="modal-title">Hapus Folder</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Apakah Anda yakin ingin menghapus folder "<%= folder.nama %>" beserta
+          semua dokumennya?
+        </div>
+        <div class="modal-footer">
+          <!-- Confirm / Delete -->
+          <button type="submit" class="btn">Hapus</button>
+          <!-- Cancel -->
+          <button
+            type="button"
+            class="btn"
+            data-bs-dismiss="modal"
+          >
+            Batal
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

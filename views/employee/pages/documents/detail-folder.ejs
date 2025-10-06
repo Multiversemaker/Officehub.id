@@ -1,0 +1,53 @@
+<main id="mainContent" class="content shifted p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h4 class="heading">
+        <i class="bi bi-folder-fill text-warning me-2"></i> <%= folder.nama %>
+      </h4>
+      <a href="/employee/documents/folder" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Back
+      </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Document Name</th>
+                <th>Uploaded By</th>
+                <th>Date</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (documents.length > 0) { %> <% documents.forEach(doc => { %>
+              <tr>
+                <td>
+                  <i class="bi bi-file-earmark-text me-2"></i> <%= doc.title %>
+                </td>
+                <td><%= doc.createdBy %></td>
+                <td>
+                  <%= new Date(doc.createdAt).toLocaleDateString("id-ID") %>
+                </td>
+                <td>
+                  <a href="/documents/view/<%= doc._id %>" class="text-primary">
+                    <i class="bi bi-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <% }) %> <% } else { %>
+              <tr>
+                <td colspan="4" class="text-center text-muted">
+                  Belum ada dokumen
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
