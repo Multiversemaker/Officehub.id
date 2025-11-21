@@ -1,0 +1,74 @@
+<div
+  class="modal fade"
+  id="filterDocumentModal"
+  tabindex="-1"
+  aria-labelledby="filterDocumentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form action="/manager/documents" method="GET">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filterDocumentModalLabel">
+            Filter Documents
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="type" class="form-label">Document Type</label>
+            <select name="type" id="type" class="form-select">
+              <option value="">All</option>
+              <option value="PDF">PDF</option>
+              <option value="PPT">PPT</option>
+              <option value="Docs">Docs</option>
+              <option value="Note">Note</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="folder" class="form-label">Folder</label>
+            <select name="folder" id="folder" class="form-select">
+              <option value="">All</option>
+              <% folders.forEach(folder => { %>
+              <option value="<%= folder._id %>"><%= folder.nama %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              id="startDate"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="endDate" class="form-label">End Date</label>
+            <input
+              type="date"
+              name="endDate"
+              id="endDate"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Apply Filter</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

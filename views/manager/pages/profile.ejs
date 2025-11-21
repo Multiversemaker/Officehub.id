@@ -1,0 +1,29 @@
+<main id="mainContent" class="content shifted p-4">
+  <div class="container-fluid">
+    <h2 class="heading">Profile</h2>
+
+    <div class="row mt-5 justify-content-center align-items-center text-center text-md-start">
+
+      <div class="col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
+        <img src="/images/default-profile.png" alt="Profile Picture" class="rounded-circle mb-3 border border-2 border-danger" style="width: 180px; height: 180px; object-fit: cover;" />
+        <h3 class="fw-bold"><%= currentUser.nama %></h3>
+        <p class="mb-0"><%= currentUser.email %></p>
+        <p class="mb-0"><%= currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1) %></p>
+        <p class="mb-0"><%= currentUser.departement %></p>
+      </div>
+
+      <div class="col-md-3 d-flex flex-column align-items-center align-items-md-start gap-2">
+        <a href="/employee/change-password" class="btn px-4 py-2">
+          Change Password
+        </a>
+        <a href="/employee/edit-profile" class="btn px-4 py-2">
+          Edit
+        </a>
+        <a href="/login" class="btn px-4 py-2">
+          Logout
+        </a>
+      </div>
+
+    </div>
+  </div>
+</main>

@@ -1,0 +1,89 @@
+<main id="mainContent" class="content shifted-collapsed p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h4 class="heading">
+        <i class="bi bi-folder-fill text-warning me-2"></i> <%= folder.nama %>
+      </h4>
+      <a href="/manager/documents/folder" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left"></i> Back
+      </a>
+      <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addSubfolderModal">
+        <i class="bi bi-folder-plus"></i> Subfolder
+      </button>
+      <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#uploadDocModal">
+        <i class="bi bi-upload"></i> Upload
+      </button>
+    </div>
+
+    <!-- Subfolders Grid -->
+    <div class="row mb-4">
+      <% if (subFolders.length > 0) { %>
+      <% subFolders.forEach(sub => { %>
+      <div class="col-md-3 mb-3">
+        <div class="folder-card">
+          <a href="/manager/documents/folder/<%= sub._id %>" class="text-decoration-none text-dark">
+            <i class="bi bi-folder-fill me-2 text-warning"></i> <%= sub.nama %>
+          </a>
+        </div>
+      </div>
+      <% }) %>
+      <% } else { %>
+        <p class="text-muted">Belum ada subfolder.</p>
+      <% } %>
+    </div>
+
+    <!-- Dokumen di Folder -->
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Document Name</th>
+                <th>Date</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (documents.length > 0) { %>
+              <% documents.forEach(doc => { %>
+              <tr>
+                <td>
+                  <i class="bi bi-file-earmark-text me-2"></i> <%= doc.judul %>
+                </td>
+                <td>
+                  <%= new Date(doc.createdAt).toLocaleDateString("id-ID") %>
+                </td>
+                <td>
+                  <% if(["Docs","PPT","Excel","PDF"].includes(doc.type)) { %>
+                  <button class="btn btn-sm btn-view-online" data-id="<%= doc._id %>">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  <% } %>
+                  <a href="/manager/documents/<%= doc._id %>/open" class="btn btn-sm btn-light" title="Open Desktop">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                  <a href="/manager/documents/<%= doc._id %>/download" class="btn btn-sm btn-light" title="Download">
+                    <i class="bi bi-download"></i>
+                  </a>
+                </td>
+              </tr>
+              <% }) %>
+              <% } else { %>
+              <tr>
+                <td colspan="4" class="text-center text-muted">
+                  Belum ada dokumen
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<%- include('../../components/document/modal-create-subFolder') %>
+<%- include('../../components/document/modal-upload-detail') %>
