@@ -1,0 +1,35 @@
+<main id="mainContent" class="content shifted p-4">
+  <div class="container-fluid">
+    <h2 class="heading">Profile</h2>
+
+    <div class="row mt-5 justify-content-center align-items-center text-center text-md-start">
+
+      <div class="col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start">
+        <div class="profile-photo-wrapper rounded-circle border mb-2" style="width: 180px; height: 180px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <% if (currentUser && currentUser.photo) { %>
+          <img src="<%= currentUser.photo %>" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover;" />
+          <% } else { %>
+          <i class="bi bi-person-fill fs-1 text-muted"></i>
+          <% } %>
+        </div>
+        <h3 class="heading mb-0"><%= currentUser.nama %></h3>
+        <p class="text mb-0"><%= currentUser.email %></p>
+        <p class="text mb-0"><%= currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1) %></p>
+        <p class="text mb-0"><%= currentUser.departement %></p>
+      </div>
+
+      <div class="col-md-3 d-flex flex-column align-items-center align-items-md-start gap-2">
+        <a href="/employee/change-password" class="btn px-4 py-2">
+          Change Password
+        </a>
+        <a href="/employee/edit-profile" class="btn px-4 py-2">
+          Edit
+        </a>
+        <a href="/login" class="btn px-4 py-2">
+          Logout
+        </a>
+      </div>
+
+    </div>
+  </div>
+</main>

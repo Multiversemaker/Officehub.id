@@ -1,0 +1,32 @@
+<div class="modal fade" id="editDocumentModal-<%= doc._id %>" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <form action="/employee/documents/<%= doc._id %>?_method=PUT" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Dokumen</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Rename File</label>
+            <input type="text" name="newName" class="form-control" value="<%= doc.judul %>">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Pindah Folder</label>
+            <select name="folderId" class="form-select">
+              <option value="">Tanpa Folder</option>
+              <% folders.forEach(folder => { %>
+              <option value="<%= folder._id %>" <%= doc.folder && doc.folder._id == folder._id ? "selected" : "" %>>
+                <%= folder.nama %>
+              </option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

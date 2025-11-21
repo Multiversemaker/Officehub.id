@@ -1,0 +1,63 @@
+<main id="mainContent" class="content shifted-collapsed p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h2 class="heading">Edit User</h2>
+      <a href="/employee/profile" class="btn">Back</a>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+      <form action="/employee/profile/<%= currentUser.nama %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="photo-upload text-center mb-4 position-relative" style="width:120px; height:120px;">
+          <% if (currentUser && currentUser.photo) { %>
+          <img id="previewImage" src="<%= currentUser.photo %>" alt="Foto Profil" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display:block;">
+          <% } else { %>
+          <i id="defaultIcon" class="bi bi-person" style="font-size: 60px; color: black; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></i>
+          <img id="previewImage" style="display:none;" alt="Preview Foto">
+          <% } %>
+
+          <!-- Icon upload di pojok bawah -->
+          <label for="photo" style="position:absolute; bottom:0; right:0 ;border-radius:50%; padding:5px; cursor:pointer; border:1px solid #ccc;">
+            <i class="bi bi-plus-lg"></i>
+          </label>
+
+          <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)" hidden>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" value="<%= currentUser.email %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="nama" name="nama" value="<%= currentUser.nama %>" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select id="roleSelect" name="role" class="form-select" required>
+                <option value="employee" <%= currentUser.role === "employee" ? "selected" : "" %>>Employee</option>
+                <option value="editor" <%= currentUser.role === "editor" ? "selected" : "" %>>Editor</option>
+                <option value="manager" <%= currentUser.role === "manager" ? "selected" : "" %>>Manager</option>
+              </select>
+            </div>
+            <div class="mb-3" id="departementContainer">
+              <label for="role" class="form-label">Departement</label>
+              <select class="form-select" name="departement" id="departementSelect" required>
+                <option value="HRD" <%= currentUser.departement === "HRD" ? "selected" : "" %>>HRD</option>
+                <option value="IT" <%= currentUser.departement === "IT" ? "selected" : "" %>>IT</option>
+                <option value="Produksi" <%= currentUser.departement === "Produksi" ? "selected" : "" %>>Produksi</option>
+                <option value="Keuangan" <%= currentUser.departement === "Keuangan" ? "selected" : "" %>>Keuangan</option>
+                <option value="Penjualan" <%= currentUser.departement === "Penjualan" ? "selected" : "" %>>Penjualan</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn">Update</button>
+      </form>
+    </div>
+  </div>
+</main>

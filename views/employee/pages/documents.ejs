@@ -1,0 +1,91 @@
+<main id="mainContent" class="content shifted-collapsed p-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="heading">Documents</h4>
+    <div>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#filterDocumentModal">
+        <i class="bi bi-funnel"></i> Filter
+      </button>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#addDocumentModal">
+        <i class="bi bi-file-earmark-plus"></i> Add File
+      </button>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#addFolderModal">
+        <i class="bi bi-folder-plus"></i> New Folder
+      </button>
+    </div>
+  </div>
+
+  <h5 class="heading mb-3">Recent Folders</h5>
+  <div class="d-flex flex-wrap gap-3 mb-5">
+    <% folders.forEach(folder => { %>
+    <div class="folder-card d-flex align-items-center justify-content-between p-3 shadow-sm rounded" style="min-width: 220px; border: 1px solid #ddd; border-radius: 8px;">
+      <div class="d-flex align-items-center gap-2">
+        <a href="/employee/documents/folder/<%= folder._id %>" class="text-decoration-none text-dark d-flex align-items-center">
+          <i class="bi bi-folder-fill me-2 text-warning"></i>
+          <span><%= folder.nama %></span>
+        </a>
+      </div>
+
+      <div class="d-flex gap-1">
+        <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#editFolderModal-<%= folder.nama %>" title="Rename Folder">
+          <i class="bi bi-pencil text-white" style="font-size: 14px;"></i>
+        </button>
+        <button class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#deleteFolderModal-<%= folder.nama %>" title="Delete Folder">
+          <i class="bi bi-trash text-white" style="font-size: 14px;"></i>
+        </button>
+      </div>
+    </div>
+    <%- include('../components/document/modal-edit-folder', { folder: folder }) %>
+    <%- include('../components/document/modal-delete-folder', { folder: folder }) %>
+    <% }) %>
+  </div>
+
+  <h5 class="heading mb-3">Recent Files</h5>
+  <div class="row mb-5">
+    <% documents.forEach(doc => { %>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm h-100 border-0" style="overflow: hidden; width: 360px;">
+        <div class="d-flex flex-column justify-content-center text-white p-3" style="height: 180px; background-color: <%= doc.color %>;">
+          <i class="bi bi-file-earmark" style="font-size: 32px;"></i>
+          <h6 class="mt-4 mb-0 heading"><%= doc.judul %></h6>
+          <small><%= doc.type.toLowerCase() %></small>
+          <small><%= doc.createdAt.toDateString() %></small>
+          <small><%= doc.folder ? doc.folder.nama : 'Tanpa Folder' %></small>
+        </div>
+
+        <div class="p-2 bg-white d-flex justify-content-start gap-2 border-top">
+          <% if(["Docs","PPT","Excel","PDF"].includes(doc.type)) { %>
+          <button class="btn btn-sm btn-view-online" data-id="<%= doc._id %>">
+            <i class="bi bi-eye"></i>
+          </button>
+
+          <% } %>
+
+          <a href="/employee/documents/<%= doc._id %>/open" class="btn btn-sm btn-light" title="Open Desktop">
+            <i class="bi bi-laptop"></i>
+          </a>
+
+          <a href="/employee/documents/<%= doc._id %>/download" class="btn btn-sm btn-light" title="Download">
+            <i class="bi bi-download"></i>
+          </a>
+          <button class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#editDocumentModal-<%= doc._id %>">
+            <i class="bi bi-pencil"></i>
+          </button>
+
+          <%- include('../components/document/modal-edit-file',  { doc: doc })%>
+          <button class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#deleteDocumentModal-<%= doc._id %>">
+            <i class="bi bi-trash"></i>
+          </button>
+          <%- include('../components/document/modal-delete-file',  { doc: doc })%>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+
+</main>
+
+<!-- Include modals -->
+<%- include('../components/document/modal-upload') %>
+<%-
+include('../components/document/modal-folder') %> <%-
+include('../components/modal/modal-filter-document') %>

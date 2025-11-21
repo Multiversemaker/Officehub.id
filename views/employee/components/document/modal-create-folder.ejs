@@ -1,0 +1,26 @@
+<div class="modal fade" id="addFolderModal" tabindex="-1" aria-labelledby="addFolderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form action="/employee/documents/folder" method="POST">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addFolderModalLabel">Tambah Folder Baru</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama Folder</label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama folder" required />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Batal
+          </button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
