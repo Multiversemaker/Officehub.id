@@ -1,0 +1,20 @@
+@import url("../css/components/navbar.css");
+@import url("../components/font.css");
+@import url("../css/components/main-content.css");
+@import url("../css/components/avatar.css");
+
+
+.pagination .page-item:active .page-link {
+  background-color: #0f2419;
+  color: white;
+}
+
+.pagination .page-link {
+  background-color: #1b4332;
+  color: white;
+}
+
+.pagination .page-link:hover {
+  background-color: #0d5f5f;
+  color: white;
+}

@@ -1,0 +1,79 @@
+@import url("../css/components/navbar.css");
+@import url("../css/components/font.css");
+@import url("../css/components/main-content.css");
+@import url("../components/modal.css");
+
+/* === Global Typography === */
+.heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.btn {
+  background-color: #1b4332;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
+
+.folder-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.folder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Folder icon warna khas hijau */
+.folder-card i {
+  font-size: 22px;
+  color: #1b4332;
+}
+
+/* Nama folder */
+.folder-card span {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  color: #1b1b1b;
+}
+
+/* === FILE CARD (final version) === */
+.file-card {
+  width: 300px;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+

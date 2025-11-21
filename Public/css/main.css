@@ -1,0 +1,31 @@
+@import url("../css/components/navbar.css");
+@import url("../components/font.css");
+@import url("../css/components/main-content.css");
+.header-section {
+  position: relative;
+  height: 300px;
+  background-image: url("../src/img1.jpg"); /* Ganti sesuai path gambar kamu */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text {
+  font-family: "Nunito Sans", sans-serif;
+}

@@ -1,0 +1,36 @@
+@import url("../components/navbar.css");
+@import url("../components/font.css");
+@import url("../components/main-content.css");
+
+
+.card {
+  width: 100%;
+  max-width: 900px;
+  margin: auto; 
+  border-radius: 12px;
+}
+
+/* Lebarin kolom form */
+.card .form-control,
+.card .form-select {
+  height: 45px;
+  font-size: 15px;
+}
+
+/* Heading */
+.heading {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Tombol */
+.btn {
+  background: #081b9e;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background: #0031ca;
+}

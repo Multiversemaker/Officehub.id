@@ -1,0 +1,131 @@
+@import url("../components/font.css");
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  min-height: 100vh;
+  padding-left: 80px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.heading {
+  font-weight: bold;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+}
+
+.text {
+  text-align: left;
+  margin-bottom: 30px;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.photo-upload {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.photo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #1b1b1b;
+  overflow: hidden;
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  overflow: hidden;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.form-control,
+.form-select {
+  padding: 10px 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .input-group {
+  flex: 1;
+}
+
+.btn {
+  background-color: #1b4332;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+
+.btn:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
+
+.right-section {
+  position: relative;
+  background: url("../src/img3.jpg") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px;
+  overflow: hidden;
+}
+
+.right-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* overlay gelap */
+  z-index: 1;
+}
+
+.right-section .overlay {
+  position: absolute;
+  z-index: 2;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.toggle-password {
+  cursor: pointer;
+}

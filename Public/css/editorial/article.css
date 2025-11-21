@@ -1,0 +1,80 @@
+@import url("../components/navbar.css");
+@import url("../components/font.css");
+@import url("../components/main-content.css");
+
+.heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn {
+  background-color: #1b4332;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+.btn:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
+
+.pagination {
+  font-family: "Work Sans", sans-serif;
+}
+
+.pagination .page-item:active .page-link {
+  background-color: #0f2419;
+  color: white;
+}
+
+.pagination .page-link {
+  background-color: #1b4332;
+  color: white;
+}
+
+.pagination .page-link:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
+
+.article-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  border-radius: 1rem;
+  color: #fff;
+}
+
+.article-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.article-card .content {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.card-info {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-card .card-heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.article-card .card-info {
+  font-family: "Work Sans", sans-serif;
+}
+
+.article-card .card-author,
+.card-date {
+  font-family: "Raleway", sans-serif;
+}

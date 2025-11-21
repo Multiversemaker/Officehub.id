@@ -1,0 +1,62 @@
+.editable-title {
+  font-size: 36px;
+  outline: none;
+  border: none;
+  margin: 20px 0;
+  cursor: text;
+  font-family: "Work Sans", sans-serif;
+}
+
+.editable-title:empty:before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  font-family: "Work Sans", sans-serif;
+}
+
+.image-upload {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.image-upload label {
+  display: inline-block;
+  padding: 40px 60px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.image-upload label:hover {
+  background: #f9f9f9;
+  border-color: #999;
+}
+
+#imagePreview img {
+  max-width: 100%;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+#editor {
+  min-height: 200px;
+  border: none;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Work Sans", sans-serif;
+}
+
+.ql-toolbar {
+  border-radius: 6px 6px 0 0;
+}
+
+.ql-container {
+  border: 1px solid #ddd;
+  border-radius: 0 0 6px 6px;
+}
+
+.heading{
+    font-family: "Montserrat", sans-serif;
+}

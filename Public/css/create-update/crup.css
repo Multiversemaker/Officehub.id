@@ -1,0 +1,21 @@
+@import url("../components/navbar.css");
+@import url("../css/components/font.css");
+@import url("../components/main-content.css");
+@import url("../create-update/article.css");
+@import url("../create-update/event.css");
+
+.btn-submit {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #1b4332;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+}
+
+.btn-submit:hover {
+  background: #0d5f5f;
+}

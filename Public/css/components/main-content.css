@@ -1,0 +1,15 @@
+.content {
+  margin-top: 56px;
+  padding: 20px;
+  min-height: 100vh;
+  background: #fff;
+  transition: margin-left 0.3s ease;
+}
+
+.content.shifted {
+  margin-left: 200px;
+}
+
+.content.shifted-collapsed {
+  margin-left: 55px;
+}

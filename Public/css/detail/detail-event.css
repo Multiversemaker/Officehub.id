@@ -1,0 +1,34 @@
+@import url("../components/navbar.css");
+@import url("../components/font.css");
+@import url("../components/main-content.css");
+.heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+.date {
+  font-family: "Work Sans", sans-serif;
+}
+
+img {
+  width: 500px;
+}
+
+.col-md-6 {
+  text-align: justify;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.btn {
+  background-color: #1b4332;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+.btn:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
+
+.information {
+  text-align: justify;
+  font-family: "Nunito Sans", sans-serif;
+}

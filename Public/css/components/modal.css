@@ -1,0 +1,24 @@
+@import url("../components/font.css");
+
+.modal-header {
+  background-color: #1b4332;
+  color: white;
+}
+
+.modal-header .modal-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+.modal-header .modal-body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.btn {
+  background-color: #1b4332;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+.btn:hover {
+  background-color: #0d5f5f;
+  color: white;
+}
