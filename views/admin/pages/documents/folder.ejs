@@ -1,0 +1,64 @@
+<main id="mainContent" class="content shifted-collapsed p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h4 class="heading">Folders</h4>
+      <div>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#filterFolderModal">
+          <i class="bi bi-funnel"></i> Filter
+        </button>
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#createFolderModal">
+          <i class="bi bi-plus-lg"></i> Add
+        </button>
+      </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>Name Folder</th>
+                <th>Date</th>
+                <th>Created By</th>
+                <th>Departement</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (folders.length > 0) { %> <% folders.forEach(folder => { %>
+              <tr>
+                <td> <a href="/admin/documents/folder/<%= folder._id %>" class="text-decoration-none text-dark">
+                    <i class="bi bi-folder-fill me-2 text-warning"></i> <%=
+                    folder.nama %>
+                  </a></td>
+                <td>
+                  <%= new Date(folder.createdAt).toLocaleDateString("id-ID") %>
+                </td>
+                <td><%= folder.createdBy ? folder.createdBy.nama : "-" %></td>
+                <td><%= folder.createdBy ? folder.createdBy.departement : "-" %></td>
+                <td>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#editFolderModal-<%= folder.nama %>" title="Rename Folder">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <%- include('../../components/document/modal-edit-folder', { folder: folder }) %>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteFolderModal-<%= folder.nama %>">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                  <%- include('../../components/document/modal-delete-folder', { folder: folder }) %>
+                </td>
+              </tr>
+              <% }) %> <% } else { %>
+              <tr>
+                <td colspan="5" class="text-center text-muted">
+                  Belum ada folder
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

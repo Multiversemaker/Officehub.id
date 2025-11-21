@@ -1,0 +1,23 @@
+<div class="modal fade" id="uploadDocModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <form method="POST" action="/employee/documents" enctype="multipart/form-data">
+        <div class="modal-header text-white">
+          <h5 class="modal-title">Upload Document</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="folderId" value="<%= folder._id %>">
+          <div class="mb-3">
+            <label class="form-label">Choose File</label>
+            <input type="file" name="file" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary">Upload</button>
+        </div>
+    </div>
+    </form>
+  </div>
+</div>

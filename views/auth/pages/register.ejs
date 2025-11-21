@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row g-0 justify-content-center align-items-center min-vh-100">
+    <div class="col-md-8">
+      <h2 class="heading mb-2">Register</h2>
+      <p class=" text mb-4">Silahkan Untuk Mendaftar</p>
+
+      <form action="/register" method="POST" enctype="multipart/form-data">
+        <div class="mb-4 photo-upload">
+          <label for="photo" class="photo-circle">
+            <i id="defaultIcon" class="bi bi-person" style="font-size: 55px; color: black;"></i>
+            <img id="previewImage" style="display:none;" alt="Foto Profil" />
+          </label>
+          <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)" hidden />
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="input-group mb-3 shadow-sm">
+              <input type="text" class="form-control" name="nama" placeholder="Nama" required />
+            </div>
+
+            <div class="input-group mb-3 shadow-sm">
+              <select class="form-select" name="role" id="roleSelect" required>
+                <option value="" selected>Pilih Role</option>
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+                <option value="editor">Editor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="input-group mb-3 shadow-sm">
+              <input type="email" class="form-control" name="email" placeholder="Email" required />
+            </div>
+
+            <div class="input-group mb-3 shadow-sm" id="departementContainer">
+              <select class="form-select" name="departement" id="departementSelect" required>
+                <option value="" selected>Pilih Departemen</option>
+                <option value="HRD">HRD</option>
+                <option value="IT">IT</option>
+                <option value="Produksi">Produksi</option>
+                <option value="Keuangan">Keuangan</option>
+                <option value="Penjualan">Penjualan</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="input-group mb-3 shadow-sm">
+            <input type="password" class="form-control" name="password" placeholder="Password" required />
+            <span class="input-group-text toggle-password" onclick="togglePassword">
+              <i class="bi bi-eye"></i>
+            </span>
+          </div>
+
+          <div class="input-group mb-3 shadow-sm">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required />
+            <span class="input-group-text toggle-password" onclick="togglePassword">
+              <i class="bi bi-eye"></i>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn w-100 shadow-sm">
+          Submit
+        </button>
+        <p class="text mt-3 text-center">
+          Jika Sudah Terdaftar, <a href="/login">Silahkan Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

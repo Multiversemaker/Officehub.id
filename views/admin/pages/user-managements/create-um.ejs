@@ -1,0 +1,79 @@
+<main id="mainContent" class="content shifted-collapsed p-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 mb-3">
+      <h2 class="heading">Add User</h2>
+      <a href="/admin/user-managements" class="btn">Back</a>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+      <form action="/admin/user-managements" method="POST" enctype="multipart/form-data">
+
+        <div class="photo-upload text-center mb-4">
+          <label for="photo" class="photo-circle">
+
+            <i id="defaultIcon" class="bi bi-person" style="font-size: 55px; color: black;"></i>
+            <img id="previewImage" style="display:none; width:100%; height:100%; object-fit: cover; border-radius:50%;" alt="Preview Foto">
+
+          </label>
+
+          <div class="upload-icon">
+            <i class="bi bi-plus-lg"></i>
+          </div>
+
+          <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto(event)" hidden>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama user" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email user" required>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <select id="roleSelect" name="role" class="form-select" required>
+                <option value="" disabled selected>Pilih role</option>
+                <option value="employee">Employee</option>
+                <option value="editor">Editor</option>
+                <option value="manager">Manager</option>
+              </select>
+            </div>
+
+            <div class="mb-3" id="departementContainer">
+              <label for="departement" class="form-label">Departement</label>
+              <select class="form-select" name="departement" id="departementSelect" required>
+                <option value="" selected>Pilih departemen</option>
+                <option value="HRD">HRD</option>
+                <option value="IT">IT</option>
+                <option value="Produksi">Produksi</option>
+                <option value="Keuangan">Keuangan</option>
+                <option value="Penjualan">Penjualan</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
+          <span class="input-group-text toggle-password" onclick="togglePassword">
+            <i class="bi bi-eye"></i>
+          </span>
+        </div>
+
+        <button type="submit" class="btn">Save</button>
+      </form>
+    </div>
+  </div>
+</main>
